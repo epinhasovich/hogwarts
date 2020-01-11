@@ -1,0 +1,16 @@
+<body>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>First Name</td>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{student["id"]}}</td>
+            <td><a href="/students/{{student['id']}}">{{student["First Name"]}}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
