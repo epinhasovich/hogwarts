@@ -3,11 +3,15 @@
         <ul>
             <li>ID: {{student["id"]}}</li>
             <li>First Name: {{student["First Name"]}}</li>
+            <li>Last Name: {{student["Last Name"]}}</li>
+            <li>Existing Magic Skills: {{student["Existing Magic Skills"]}}</li>
+            <li>Desired Magic Skills: {{student["Desired Magic Skills"]}}</li>
+            <li>Courses: {{student["Courses"]}}</li>
+            <li>Created Time: {{student["Created Time"]}}</li>
         </ul>
     </div>
-<a href = "/students">See Students</a>
 
-
-
+    <div><a href="/students/update/{{student['id']}}">Edit</a></div></br>
+    <a href = "/students">See All Students</a>
 
 </body>
