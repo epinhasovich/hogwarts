@@ -106,11 +106,11 @@ def edit_student(id):
         print('4')
         fname = request.form.get('firstForm')
         lname = request.form.get('lastForm')
-        ems = request.form.get(skills)
-        print('5')
+        # ems = request.form.get(skills)
+        # print('5')
         student['first_name'] = fname
         student['last_name'] = lname
-        student[skills] = ems
+        # student[skills] = ems
         print('6')
         return render_template('student.html', student=student)
 
