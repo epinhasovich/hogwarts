@@ -2,16 +2,16 @@
     <div>
         <ul>
             <li>ID: {{student["id"]}}</li>
-            <li>First Name: {{student["First Name"]}}</li>
-            <li>Last Name: {{student["Last Name"]}}</li>
-            <li>Existing Magic Skills: {{student["Existing Magic Skills"]}}</li>
+            <li>First Name: {{student["first_name"]}}</li>
+            <li>Last Name: {{student["last_name"]}}</li>
+            <li>Existing Magic Skills: {{student["existing_magic_skills"]}}</li>
             <li>Desired Magic Skills: {{student["Desired Magic Skills"]}}</li>
             <li>Courses: {{student["Courses"]}}</li>
             <li>Created Time: {{student["Created Time"]}}</li>
         </ul>
     </div>
 
-    <div><a href="/students/update/{{student['id']}}">Edit</a></div></br>
+    <div><a href="/students/{{student['id']}}/edit">Edit</a></div></br>
     <a href = "/students">See All Students</a>
 
 </body>

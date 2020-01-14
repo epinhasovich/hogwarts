@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, url_for, send_from_directory
 import threading
 from datetime import datetime
 
@@ -8,20 +8,29 @@ app = Flask(__name__)
 students = [
     {
         "id": 1,
-        "First Name": "Eric",
-        "Last Name": "Pinhasovich",
-        "Existing Magic Skills": "Healing",
+        "first_name": "Eric",
+        "last_name": "Pinhasovich",
+        "existing_magic_skills": "Healing",
         "Desired Magic Skills": "Potions",
         "Courses": "Magic For Day-to-Day Life",
         "Created Time": datetime.now()
     },
     {
         "id": 2,
-        "First Name": "Harry",
-        "Last Name": "Potter",
-        "Existing Magic Skills": ["Alchemy", "Invisibility"],
-        "Desired Magic Skills": "Poison",
+        "first_name": "Harry",
+        "last_name": "Potter",
+        "existing_magic_skills": ["Alchemy", "Invisibility", "Omnipresent"],
+        "Desired Magic Skills": ["Poison", "Elemental"],
         "Courses": "Dating With Magic",
+        "Created Time": datetime.now()
+    },
+    {
+        "id": 3,
+        "first_name": "Hermoine",
+        "last_name": "Granger",
+        "existing_magic_skills": ["Potions", "Water breathing", "Summoning", "Healing"],
+        "Desired Magic Skills": ["Invisibility", "Immortality"],
+        "Courses": "Magic For Medical Professionals",
         "Created Time": datetime.now()
     }
 ]
@@ -72,9 +81,9 @@ def create_student():
         return courses
     student = {
         "id": students[-1]['id'] + 1,
-        "First Name": request.form['firstForm'],
-        "Last Name": request.form['lastForm'],
-        "Existing Magic Skills": add_skills(),
+        "first_name": request.form['firstForm'],
+        "last_name": request.form['lastForm'],
+        "existing_magic_skills": add_skills(),
         "Desired Magic Skills": wanted_skills(),
         "Courses": course_list(),
         "Created Time": datetime.now()
@@ -85,19 +94,42 @@ def create_student():
     return render_template("student.html", student=student)
 
 
-@app.route("/students/update/<int:id>", methods=['GET'])
+@app.route("/students/<int:id>/edit", methods=['GET', 'POST'])
 def edit_student(id):
-    print("Hello!")
-    student = [student for student in students if student['id'] == id]
-    print("Hello 2!")
-    return render_template('edit.html', student=student)
+    print('1')
+    student = [student for student in students if student['id'] == id][0]
+    print('2')
+    if request.method == 'GET':
+        return render_template('edit.html', student=student)
+        print('3')
+    elif request.method == 'POST':
+        print('4')
+        fname = request.form.get('firstForm')
+        lname = request.form.get('lastForm')
+        ems = request.form.get(skills)
+        print('5')
+        student['first_name'] = fname
+        student['last_name'] = lname
+        student[skills] = ems
+        print('6')
+        return render_template('student.html', student=student)
+
+#firstName
+# @app.route('/edited')
+# def update_student(id):
+#     student = [student for student in students if student['id'] == id]
+#     student[0]['first_name'] = request.args.get('first_name', student[0]['first_name'])
+#     return render_template("student.html", student=student[0])
 
 
-@app.route("/edited/", methods=['POST'])
-def update_student(id):
-    student = [student for student in students if student['id'] == id]
-    student[0]['First Name'] = request.form.get('First Name', student[0]['First Name'])
-    return render_template("student.html", student=student[0])
+@app.route('/static/css/<path:path>')
+def stylesheets(path):
+    return app.send_static_file('css/' + path)
+
+
+# @app.route('/static/css/<path:path>')
+# def stylesheets(path):
+#     return send_from_directory('static/css/' + path)
 
 
 if __name__ == "__main__":
