@@ -12,10 +12,11 @@
             <ul>{% for magic in student["existing_magic_skills"] %}
                 <li>{{ magic.skill}}, Level: {{ magic.level }}</li>
                 {% endfor %}</ul>
-            <td><ul>{% for want in student["desired_magic_skills"] %}
+            Desired Magic Skills:
+            <ul>{% for want in student["desired_magic_skills"] %}
                 <li>{{ want}}</li>
-                {% endfor %}</ul></td>
-            <li class="attr">Courses: {{student["courses"]}}</li>
+                {% endfor %}</ul>
+            <li class="attr">Courses: {{student["courses"]|join(' ')}}</li>
             <li class="attr">Created Time: {{student["created_time"]}}</li>
             <li class="attr">Updated Time: {{student["updated_time"]}}</li>
         </ul>

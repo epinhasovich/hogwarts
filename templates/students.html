@@ -24,7 +24,7 @@
             <td><ul>{% for want in student["desired_magic_skills"] %}
                 <li>{{ want}}</li>
                 {% endfor %}</ul></td>
-            <td>{{student["courses"]}}</td>
+            <td>{{student["courses"]|join(' ')}}</td>
             <td>{{student["created_time"]}}</td>
             <td>{{student["updated_time"]}}</td>
         </tr>
