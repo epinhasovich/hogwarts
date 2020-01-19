@@ -1,6 +1,75 @@
 #homepage {
-    background-color: blue;
+        background: url('https://wallpaperaccess.com/full/541378.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        font-family: fantasy;
+        font-size: xx-large;
+        }
+
+a {
+     color: white;
+   }
+
+#mainScreen {
+        background: url('https://images8.alphacoders.com/760/760721.png') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: contain, cover;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        font-family: fantasy;
 }
 
-body{
-background-color:red}
+#students {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: fantasy;
+}
+
+#labels {
+    text-decoration: underline;
+    font-family: fantasy;
+}
+
+#info {
+    list-style-type: none;
+    font-family: fantasy;
+}
+
+.attr {
+    margin-bottom: 15px;
+    font-family: fantasy;
+}
+
+#edit {
+        background: url('https://images.wisegeek.com/blackboard-slate.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding: 75px;
+        color: white;
+        text-align: center;
+        font-family: fantasy;
+}
+
+#add {
+    background: url('https://images.wisegeek.com/blackboard-slate.jpg') no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     padding: 75px;
+     color: white;
+     font-family: fantasy;
+}
+
+

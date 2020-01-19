@@ -1,26 +1,35 @@
-<body>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body id="mainScreen">
 <br>
-    <table>
-        <tr>
+    <table id="students">
+        <tr id="labels">
             <td>ID</td>
             <td>Name</td>
             <td>Existing Magic Skills</td>
             <td>Desired Magic Skills</td>
             <td>Courses</td>
             <td>Created Time</td>
+            <td>Updated Time</td>
         </tr>
         {% for student in students %}
         <tr>
             <td>{{student["id"]}}</td>
             <td><a href="/students/{{student['id']}}">{{student["first_name"]}} {{student["last_name"]}}</a></td>
             <td>{{student["existing_magic_skills"]}}</td>
-            <td>{{student["Desired Magic Skills"]}}</td>
-            <td>{{student["Courses"]}}</td>
-            <td>{{student["Created Time"]}}</td>
+            <td>{{student["desired_magic_skills"]}}</td>
+            <td>{{student["courses"]}}</td>
+            <td>{{student["created_time"]}}</td>
+            <td>{{student["updated_time"]}}</td>
         </tr>
         {% endfor %}
     </table></br>
     <div><a href="students/add">ADD NEW STUDENT</a></div>
+    <div><a href="skillstats">Check Out Statistics</a></div>
 
 
 </body>
+
+</html>

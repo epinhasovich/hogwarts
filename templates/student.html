@@ -1,13 +1,18 @@
-<body>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body id="mainScreen">
     <div>
-        <ul>
-            <li>ID: {{student["id"]}}</li>
-            <li>First Name: {{student["first_name"]}}</li>
-            <li>Last Name: {{student["last_name"]}}</li>
-            <li>Existing Magic Skills: {{student["existing_magic_skills"]}}</li>
-            <li>Desired Magic Skills: {{student["Desired Magic Skills"]}}</li>
-            <li>Courses: {{student["Courses"]}}</li>
-            <li>Created Time: {{student["Created Time"]}}</li>
+        <ul id="info">
+            <li class="attr">ID: {{student["id"]}}</li>
+            <li class="attr">First Name: {{student["first_name"]}}</li>
+            <li class="attr">Last Name: {{student["last_name"]}}</li>
+            <li class="attr">Existing Magic Skills: {{student["existing_magic_skills"]}}</li>
+            <li class="attr">Desired Magic Skills: {{student["desired_magic_skills"]}}</li>
+            <li class="attr">Courses: {{student["courses"]}}</li>
+            <li class="attr">Created Time: {{student["created_time"]}}</li>
+            <li class="attr">Updated Time: {{student["updated_time"]}}</li>
         </ul>
     </div>
 

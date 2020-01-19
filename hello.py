@@ -10,30 +10,46 @@ students = [
         "id": 1,
         "first_name": "Eric",
         "last_name": "Pinhasovich",
-        "existing_magic_skills": "Healing",
-        "Desired Magic Skills": "Potions",
-        "Courses": "Magic For Day-to-Day Life",
-        "Created Time": datetime.now()
+        "existing_magic_skills": [{"skill": 'Healing',
+                                   "level:": 4}],
+        "desired_magic_skills": ["Poison"],
+        "courses": "Magic For Day-to-Day Life",
+        "created_time": datetime.now(),
+        "updated_time": ''
     },
     {
         "id": 2,
         "first_name": "Harry",
         "last_name": "Potter",
-        "existing_magic_skills": ["Alchemy", "Invisibility", "Omnipresent"],
-        "Desired Magic Skills": ["Poison", "Elemental"],
-        "Courses": "Dating With Magic",
-        "Created Time": datetime.now()
+        "existing_magic_skills": [
+                            {"skill": 'Alchemy', "level": 5},
+                            {'skill': 'Invisibility', 'level': 2},
+                            {'skill': 'Omnipresent', 'level': 3}
+                                 ],
+        "desired_magic_skills": ["Poison", "Elemental"],
+        "courses": "Dating With Magic",
+        "created_time": datetime.now(),
+        "updated_time": ''
     },
     {
         "id": 3,
         "first_name": "Hermoine",
         "last_name": "Granger",
-        "existing_magic_skills": ["Potions", "Water breathing", "Summoning", "Healing"],
-        "Desired Magic Skills": ["Invisibility", "Immortality"],
-        "Courses": "Magic For Medical Professionals",
-        "Created Time": datetime.now()
+        "existing_magic_skills": [
+                            {"skill": 'Poison', "level": 4},
+                            {'skill': 'Summoning', 'level': 2},
+                            {'skill': 'Healing', 'level': 3}
+                                 ],
+        "desired_magic_skills": ["Invisibility", "Immortality"],
+        "courses": "Magic For Medical Professionals",
+        "created_time": datetime.now(),
+        "updated_time": ''
     }
 ]
+
+magic_skills = ["Alchemy", "Animation", "Conjuror", "Disintegration", "Elemental", "Healing", "Illusion", "Immortality",
+                "Invisibility", "Invulnerability", "Necromancer", "Omnipresent", "Omniscient", "Poison", "Possession",
+                "Self-detonation", "Summoning", "Water breathing"]
 
 
 @app.route("/")
@@ -60,11 +76,12 @@ def add_student():
 @app.route("/added", methods=['POST'])
 def create_student():
     def add_skills():
-        skills = []
-        for key, val in request.form.items():
-            if key.startswith('skill'):
-                skills.append(val)
-        return skills
+        magic_skillz = request.form.getlist('magic_skills[]')
+        magic_skillz = [{'skill': skill} for skill in magic_skillz]
+        magic_level = request.form.getlist('magic_level[]')
+        for i in range(len(magic_skillz)):
+            magic_skillz[i]['level'] = magic_level[i]
+        return magic_skillz
 
     def wanted_skills():
         wanted = []
@@ -84,9 +101,10 @@ def create_student():
         "first_name": request.form['firstForm'],
         "last_name": request.form['lastForm'],
         "existing_magic_skills": add_skills(),
-        "Desired Magic Skills": wanted_skills(),
-        "Courses": course_list(),
-        "Created Time": datetime.now()
+        "desired_magic_skills": wanted_skills(),
+        "courses": course_list(),
+        "created_time": datetime.now(),
+        "updated_time": ''
 
     }
 
@@ -96,41 +114,52 @@ def create_student():
 
 @app.route("/students/<int:id>/edit", methods=['GET', 'POST'])
 def edit_student(id):
-    print('1')
     student = [student for student in students if student['id'] == id][0]
-    print('2')
     if request.method == 'GET':
         return render_template('edit.html', student=student)
-        print('3')
     elif request.method == 'POST':
-        print('4')
         fname = request.form.get('firstForm')
         lname = request.form.get('lastForm')
-        # ems = request.form.get(skills)
-        # print('5')
+        student_existing_magic_skills = request.form.getlist("magic_skills[]")
+        student_wanted_magic_skills = request.form.getlist("wanted_skills[]")
+        classes = request.form.getlist("classes[]")
         student['first_name'] = fname
         student['last_name'] = lname
-        # student[skills] = ems
-        print('6')
+        student["existing_magic_skills"] = student_existing_magic_skills
+        student["desired_magic_skills"] = student_wanted_magic_skills
+        student["courses"] = classes
+        student['updated_time'] = datetime.now()
         return render_template('student.html', student=student)
 
-#firstName
-# @app.route('/edited')
-# def update_student(id):
-#     student = [student for student in students if student['id'] == id]
-#     student[0]['first_name'] = request.args.get('first_name', student[0]['first_name'])
-#     return render_template("student.html", student=student[0])
 
-
-@app.route('/static/css/<path:path>')
-def stylesheets(path):
-    return app.send_static_file('css/' + path)
-
-
-# @app.route('/static/css/<path:path>')
-# def stylesheets(path):
-#     return send_from_directory('static/css/' + path)
+@app.route('/skillstats')
+def pie_chart():
+    data = students
+    existing_skills = []
+    desired_skills = []
+    student = [student for student in data]
+    for skill in student:
+        e_skills = skill['existing_magic_skills']
+        d_skills = skill['desired_magic_skills']
+        for skill in e_skills:
+            student_skills = skill['skill']
+            existing_skills.append(student_skills)
+        for skill in d_skills:
+            desired_skills.append(skill)
+    existing_list = []
+    for skill in magic_skills:
+        count = existing_skills.count(skill)
+        if count:
+            existing_list.append({'y': count, 'label': skill})
+    desired_list = []
+    for skill in magic_skills:
+        count = desired_skills.count(skill)
+        if count:
+            desired_list.append({'y': count, 'label': skill})
+            print(desired_list)
+    return render_template('pie-chart.html', data=data, existing_list=existing_list, desired_list=desired_list)
 
 
 if __name__ == "__main__":
     threading.Thread(target=app.run).start()
+
