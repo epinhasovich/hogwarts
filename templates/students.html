@@ -18,8 +18,14 @@
         <tr>
             <td>{{student["id"]}}</td>
             <td><a href="/students/{{student['id']}}">{{student["first_name"]}} {{student["last_name"]}}</a></td>
-            <td>{{student["existing_magic_skills"]}}</td>
-            <td>{{student["desired_magic_skills"]}}</td>
+            <td><ul>{% for magic in student["existing_magic_skills"] %}
+                <li>{{ magic.skill}}, Level: {{ magic.level }}</li>
+                {% endfor %}</ul></td>
+            <td><ul>{% for want in student["desired_magic_skills"] %}
+                <li>{{ want}}</li>
+                {% endfor %}</ul></td>
+<!--            <td>{{ student["existing_magic_skills"]|join(' ') }}</td>-->
+<!--            <td>{{student["desired_magic_skills"]|join(' ') }}</td>-->
             <td>{{student["courses"]}}</td>
             <td>{{student["created_time"]}}</td>
             <td>{{student["updated_time"]}}</td>

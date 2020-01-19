@@ -72,4 +72,8 @@ a {
      font-family: fantasy;
 }
 
+li {
+    list-style: none;
+}
+
 

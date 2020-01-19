@@ -8,8 +8,15 @@
             <li class="attr">ID: {{student["id"]}}</li>
             <li class="attr">First Name: {{student["first_name"]}}</li>
             <li class="attr">Last Name: {{student["last_name"]}}</li>
-            <li class="attr">Existing Magic Skills: {{student["existing_magic_skills"]}}</li>
-            <li class="attr">Desired Magic Skills: {{student["desired_magic_skills"]}}</li>
+<!--            <li class="attr">Existing Magic Skills: {{student["existing_magic_skills"]|join(' ') }}</li>-->
+            Existing Magic Skills:
+            <ul>{% for magic in student["existing_magic_skills"] %}
+                <li>{{ magic.skill}}, Level: {{ magic.level }}</li>
+                {% endfor %}</ul>
+<!--            <li class="attr">Desired Magic Skills: {{student["desired_magic_skills"]}}</li>-->
+            <td><ul>{% for want in student["desired_magic_skills"] %}
+                <li>{{ want}}</li>
+                {% endfor %}</ul></td>
             <li class="attr">Courses: {{student["courses"]}}</li>
             <li class="attr">Created Time: {{student["created_time"]}}</li>
             <li class="attr">Updated Time: {{student["updated_time"]}}</li>
@@ -17,6 +24,7 @@
     </div>
 
     <div><a href="/students/{{student['id']}}/edit">Edit</a></div></br>
-    <a href = "/students">See All Students</a>
+    <a href = "/students">See All Students</a></br>
+<!--    <div><a href="/students/{{student['id']}}/delete">Delete</a></div>-->
 
 </body>

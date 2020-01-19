@@ -4,10 +4,10 @@
 
 <body id="edit">
     <h1>Update Student</h1>
-    <form action="/students/{{student['id']}}/edit" method="POST">
-        <input type="text" value="{{student['first_name']}}" name="firstForm" placeholder="First Name">
-        <input type="text" value="{{student['last_name']}}" name="lastForm" placeholder="Last Name">
-        <h2>Existing Magic Skills</h2>
+    <form action="/students/{{student['id']}}/edit" method="post">
+        <input type="text" name="firstForm" value="{{student['first_name']}}" placeholder="First Name">
+        <input type="text" name="lastForm" value="{{student['last_name']}}" placeholder="Last Name"></br>
+        <h2>Existing Magic Skill</h2>
         <select name="magic_skills[]">
             <option  name="skill1" value="Alchemy" >Alchemy</option>
             <option  name="skill2" value="Animation">Animation</option>
@@ -28,7 +28,109 @@
             <option  name="skill17" value="Summoning">Summoning</option>
             <option  name="skill18" value="Water breathing">Water breathing</option>
         </select>
+        <select name="magic_level[]">
+            <option type="radio" name="level" value="1">1</option><br>
+            <option type="radio" name="level" value="2">2</option><br>
+            <option type="radio" name="level" value="3">3</option><br>
+            <option type="radio" name="level" value="4">4</option><br>
+            <option type="radio" name="level" value="5">5</option><br>
+        </select></br>
+        <select name="magic_skills[]">
+            <option  name="skill1" value="Alchemy" >Alchemy</option>
+            <option  name="skill2" value="Animation">Animation</option>
+            <option  name="skill3" value="Conjuror">Conjuror</option>
+            <option  name="skill4" value="Disintegration">Disintegration</option>
+            <option  name="skill5" value="Elemental">Elemental</option>
+            <option  name="skill6" value="Healing">Healing</option>
+            <option  name="skill7" value="Illusion">Illusion</option>
+            <option  name="skill8" value="Immortality">Immortality</option>
+            <option  name="skill9" value="Invisibility">Invisibility</option>
+            <option  name="skill10" value="Invulnerability">Invulnerability</option>
+            <option  name="skill11" value="Necromancer">Necromancer</option>
+            <option  name="skill12" value="Omnipresent">Omnipresent</option>
+            <option  name="skill13" value="Omniscient">Omniscient</option>
+            <option  name="skill14" value="Poison">Poison</option>
+            <option  name="skill15" value="Possession">Possession</option>
+            <option  name="skill16" value="Self-detonation">Self-detonation</option>
+            <option  name="skill17" value="Summoning">Summoning</option>
+            <option  name="skill18" value="Water breathing">Water breathing</option>
+        </select>
+        <select name="magic_level[]">
+            <option type="radio" name="level" value="1">1</option><br>
+            <option type="radio" name="level" value="2">2</option><br>
+            <option type="radio" name="level" value="3">3</option><br>
+            <option type="radio" name="level" value="4">4</option><br>
+            <option type="radio" name="level" value="5">5</option><br>
+        </select></br>
+        <select name="magic_skills[]">
+            <option  name="skill1" value="Alchemy" >Alchemy</option>
+            <option  name="skill2" value="Animation">Animation</option>
+            <option  name="skill3" value="Conjuror">Conjuror</option>
+            <option  name="skill4" value="Disintegration">Disintegration</option>
+            <option  name="skill5" value="Elemental">Elemental</option>
+            <option  name="skill6" value="Healing">Healing</option>
+            <option  name="skill7" value="Illusion">Illusion</option>
+            <option  name="skill8" value="Immortality">Immortality</option>
+            <option  name="skill9" value="Invisibility">Invisibility</option>
+            <option  name="skill10" value="Invulnerability">Invulnerability</option>
+            <option  name="skill11" value="Necromancer">Necromancer</option>
+            <option  name="skill12" value="Omnipresent">Omnipresent</option>
+            <option  name="skill13" value="Omniscient">Omniscient</option>
+            <option  name="skill14" value="Poison">Poison</option>
+            <option  name="skill15" value="Possession">Possession</option>
+            <option  name="skill16" value="Self-detonation">Self-detonation</option>
+            <option  name="skill17" value="Summoning">Summoning</option>
+            <option  name="skill18" value="Water breathing">Water breathing</option>
+        </select>
+        <select name="magic_level[]">
+            <option type="radio" name="level" value="1">1</option><br>
+            <option type="radio" name="level" value="2">2</option><br>
+            <option type="radio" name="level" value="3">3</option><br>
+            <option type="radio" name="level" value="4">4</option><br>
+            <option type="radio" name="level" value="5">5</option><br>
+        </select></br>
+
         <h2>Wanted Magic Skills</h2>
+        <select name="wanted_skills[]">
+            <option  name="skill1" value="Alchemy">Alchemy</option>
+            <option  name="skill2" value="Animation">Animation</option>
+            <option  name="skill3" value="Conjuror">Conjuror</option>
+            <option  name="skill4" value="Disintegration">Disintegration</option>
+            <option  name="skill5" value="Elemental">Elemental</option>
+            <option  name="skill6" value="Healing">Healing</option>
+            <option  name="skill7" value="Illusion">Illusion</option>
+            <option  name="skill8" value="Immortality">Immortality</option>
+            <option  name="skill9" value="Invisibility">Invisibility</option>
+            <option  name="skill10" value="Invulnerability">Invulnerability</option>
+            <option  name="skill11" value="Necromancer">Necromancer</option>
+            <option  name="skill12" value="Omnipresent">Omnipresent</option>
+            <option  name="skill13" value="Omniscient">Omniscient</option>
+            <option  name="skill14" value="Poison">Poison</option>
+            <option  name="skill15" value="Possession">Possession</option>
+            <option  name="skill16" value="Self-detonation">Self-detonation</option>
+            <option  name="skill17" value="Summoning">Summoning</option>
+            <option  name="skill18" value="Water breathing">Water breathing</option>
+        </select>
+        <select name="wanted_skills[]">
+            <option  name="skill1" value="Alchemy">Alchemy</option>
+            <option  name="skill2" value="Animation">Animation</option>
+            <option  name="skill3" value="Conjuror">Conjuror</option>
+            <option  name="skill4" value="Disintegration">Disintegration</option>
+            <option  name="skill5" value="Elemental">Elemental</option>
+            <option  name="skill6" value="Healing">Healing</option>
+            <option  name="skill7" value="Illusion">Illusion</option>
+            <option  name="skill8" value="Immortality">Immortality</option>
+            <option  name="skill9" value="Invisibility">Invisibility</option>
+            <option  name="skill10" value="Invulnerability">Invulnerability</option>
+            <option  name="skill11" value="Necromancer">Necromancer</option>
+            <option  name="skill12" value="Omnipresent">Omnipresent</option>
+            <option  name="skill13" value="Omniscient">Omniscient</option>
+            <option  name="skill14" value="Poison">Poison</option>
+            <option  name="skill15" value="Possession">Possession</option>
+            <option  name="skill16" value="Self-detonation">Self-detonation</option>
+            <option  name="skill17" value="Summoning">Summoning</option>
+            <option  name="skill18" value="Water breathing">Water breathing</option>
+        </select>
         <select name="wanted_skills[]">
             <option  name="skill1" value="Alchemy">Alchemy</option>
             <option  name="skill2" value="Animation">Animation</option>
@@ -58,120 +160,6 @@
             <option name="course5" value="Dating With Magic">Dating With Magic</option></br>
         </select></br>
         <input type="submit">
-    </form>
-
-<!--    <form action="/students/{{student['id']}}/edit" method="post">-->
-<!--        <input type="text" name="firstForm" value="{{student['first_name']}}" placeholder="First Name">-->
-<!--        <input type="text" name="lastForm" value="{{student['last_name']}}" placeholder="Last Name"></br>-->
-<!--        <h2>Existing Magic Skill</h2>-->
-<!--        <select name="magic_skills[]">-->
-<!--            <option  name="skill1" value="Alchemy" >Alchemy</option>-->
-<!--            <option  name="skill2" value="Animation">Animation</option>-->
-<!--            <option  name="skill3" value="Conjuror">Conjuror</option>-->
-<!--            <option  name="skill4" value="Disintegration">Disintegration</option>-->
-<!--            <option  name="skill5" value="Elemental">Elemental</option>-->
-<!--            <option  name="skill6" value="Healing">Healing</option>-->
-<!--            <option  name="skill7" value="Illusion">Illusion</option>-->
-<!--            <option  name="skill8" value="Immortality">Immortality</option>-->
-<!--            <option  name="skill9" value="Invisibility">Invisibility</option>-->
-<!--            <option  name="skill10" value="Invulnerability">Invulnerability</option>-->
-<!--            <option  name="skill11" value="Necromancer">Necromancer</option>-->
-<!--            <option  name="skill12" value="Omnipresent">Omnipresent</option>-->
-<!--            <option  name="skill13" value="Omniscient">Omniscient</option>-->
-<!--            <option  name="skill14" value="Poison">Poison</option>-->
-<!--            <option  name="skill15" value="Possession">Possession</option>-->
-<!--            <option  name="skill16" value="Self-detonation">Self-detonation</option>-->
-<!--            <option  name="skill17" value="Summoning">Summoning</option>-->
-<!--            <option  name="skill18" value="Water breathing">Water breathing</option>-->
-<!--        </select>-->
-<!--        <select name="magic_level[]">-->
-<!--            <option type="radio" name="level" value="1">1</option><br>-->
-<!--            <option type="radio" name="level" value="2">2</option><br>-->
-<!--            <option type="radio" name="level" value="3">3</option><br>-->
-<!--            <option type="radio" name="level" value="4">4</option><br>-->
-<!--            <option type="radio" name="level" value="5">5</option><br>-->
-<!--        </select></br>-->
-<!--        <select name="magic_skills[]">-->
-<!--            <option  name="skill1" value="Alchemy" >Alchemy</option>-->
-<!--            <option  name="skill2" value="Animation">Animation</option>-->
-<!--            <option  name="skill3" value="Conjuror">Conjuror</option>-->
-<!--            <option  name="skill4" value="Disintegration">Disintegration</option>-->
-<!--            <option  name="skill5" value="Elemental">Elemental</option>-->
-<!--            <option  name="skill6" value="Healing">Healing</option>-->
-<!--            <option  name="skill7" value="Illusion">Illusion</option>-->
-<!--            <option  name="skill8" value="Immortality">Immortality</option>-->
-<!--            <option  name="skill9" value="Invisibility">Invisibility</option>-->
-<!--            <option  name="skill10" value="Invulnerability">Invulnerability</option>-->
-<!--            <option  name="skill11" value="Necromancer">Necromancer</option>-->
-<!--            <option  name="skill12" value="Omnipresent">Omnipresent</option>-->
-<!--            <option  name="skill13" value="Omniscient">Omniscient</option>-->
-<!--            <option  name="skill14" value="Poison">Poison</option>-->
-<!--            <option  name="skill15" value="Possession">Possession</option>-->
-<!--            <option  name="skill16" value="Self-detonation">Self-detonation</option>-->
-<!--            <option  name="skill17" value="Summoning">Summoning</option>-->
-<!--            <option  name="skill18" value="Water breathing">Water breathing</option>-->
-<!--        </select>-->
-<!--        <select name="magic_level[]">-->
-<!--            <option type="radio" name="level" value="1">1</option><br>-->
-<!--            <option type="radio" name="level" value="2">2</option><br>-->
-<!--            <option type="radio" name="level" value="3">3</option><br>-->
-<!--            <option type="radio" name="level" value="4">4</option><br>-->
-<!--            <option type="radio" name="level" value="5">5</option><br>-->
-<!--        </select></br>-->
-<!--        <select name="magic_skills[]">-->
-<!--            <option  name="skill1" value="Alchemy" >Alchemy</option>-->
-<!--            <option  name="skill2" value="Animation">Animation</option>-->
-<!--            <option  name="skill3" value="Conjuror">Conjuror</option>-->
-<!--            <option  name="skill4" value="Disintegration">Disintegration</option>-->
-<!--            <option  name="skill5" value="Elemental">Elemental</option>-->
-<!--            <option  name="skill6" value="Healing">Healing</option>-->
-<!--            <option  name="skill7" value="Illusion">Illusion</option>-->
-<!--            <option  name="skill8" value="Immortality">Immortality</option>-->
-<!--            <option  name="skill9" value="Invisibility">Invisibility</option>-->
-<!--            <option  name="skill10" value="Invulnerability">Invulnerability</option>-->
-<!--            <option  name="skill11" value="Necromancer">Necromancer</option>-->
-<!--            <option  name="skill12" value="Omnipresent">Omnipresent</option>-->
-<!--            <option  name="skill13" value="Omniscient">Omniscient</option>-->
-<!--            <option  name="skill14" value="Poison">Poison</option>-->
-<!--            <option  name="skill15" value="Possession">Possession</option>-->
-<!--            <option  name="skill16" value="Self-detonation">Self-detonation</option>-->
-<!--            <option  name="skill17" value="Summoning">Summoning</option>-->
-<!--            <option  name="skill18" value="Water breathing">Water breathing</option>-->
-<!--        </select>-->
-<!--        <select name="magic_level[]">-->
-<!--            <option type="radio" name="level" value="1">1</option><br>-->
-<!--            <option type="radio" name="level" value="2">2</option><br>-->
-<!--            <option type="radio" name="level" value="3">3</option><br>-->
-<!--            <option type="radio" name="level" value="4">4</option><br>-->
-<!--            <option type="radio" name="level" value="5">5</option><br>-->
-<!--        </select></br>-->
-
-<!--        <h2>Desired Magic Skills</h2>-->
-<!--        <input type="checkbox" name="wanted1" value="Alchemy">Alchemy-->
-<!--        <input type="checkbox" name="wanted2" value="Animation">Animation-->
-<!--        <input type="checkbox" name="wanted3" value="Conjuror">Conjuror-->
-<!--        <input type="checkbox" name="wanted4" value="Disintegration">Disintegration-->
-<!--        <input type="checkbox" name="wanted5" value="Elemental">Elemental-->
-<!--        <input type="checkbox" name="wanted6" value="Healing">Healing-->
-<!--        <input type="checkbox" name="wanted7" value="Illusion">Illusion-->
-<!--        <input type="checkbox" name="wanted8" value="Immortality">Immortality-->
-<!--        <input type="checkbox" name="wanted9" value="Invisibility">Invisibility-->
-<!--        <input type="checkbox" name="wanted10" value="Invulnerability">Invulnerability-->
-<!--        <input type="checkbox" name="wanted11" value="Necromancer">Necromancer-->
-<!--        <input type="checkbox" name="wanted12" value="Omnipresent">Omnipresent-->
-<!--        <input type="checkbox" name="wanted13" value="Omniscient">Omniscient-->
-<!--        <input type="checkbox" name="wanted14" value="Poison">Poison-->
-<!--        <input type="checkbox" name="wanted15" value="Possession">Possession</br>-->
-<!--        <input type="checkbox" name="wanted16" value="Self-detonation">Self-detonation-->
-<!--        <input type="checkbox" name="wanted17" value="Summoning">Summoning-->
-<!--        <input type="checkbox" name="wanted18" value="Water breathing">Water breathing</br>-->
-<!--        <h2>Courses</h2>-->
-<!--        <input type="checkbox" name="course1" value="Alchemy Basics">Alchemy Basics-->
-<!--        <input type="checkbox" name="course2" value="Alchemy Advanced">Alchemy Advanced-->
-<!--        <input type="checkbox" name="course3" value="Magic For Day-to-Day Life">Magic For Day-to-Day Life-->
-<!--        <input type="checkbox" name="course4" value="Magic For Medical Professionals">Magic For Medical Professionals-->
-<!--        <input type="checkbox" name="course5" value="Dating With Magic">Dating With Magic</br>-->
-<!--        <input type="submit">-->
-<!--    </form></br>-->
+    </form></br>
 
 </body>

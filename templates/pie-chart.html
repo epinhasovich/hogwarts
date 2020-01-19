@@ -38,13 +38,50 @@ var chart2 = new CanvasJS.Chart("chartContainerDesired", {
 });
 chart2.render();
 
+data_number = {{ student_count | tojson }}
+
+var graph = new CanvasJS.Chart("graphContainer", {
+	animationEnabled: true,
+
+	title:{
+		text:"Student Registration"
+	},
+	axisX:{
+	    interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+	},
+	axisY2:{
+		interval: 1,
+		title: "Number of Students"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [{"y": data_number, "label": "Student"}]
+	}]
+});
+graph.render();
+
 }
 </script>
+<style>
+    body {
+        background: url('https://www.wallpaperflare.com/static/582/685/193/harry-potter-and-the-sorcerer-s-stone-literature-quote-boy-wallpaper.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+</style>
 </head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<div id="chartContainer" style="height: 250px; width: 50%; margin-left: 25%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<div id="chartContainerDesired" style="height: 300px; width: 100%;"></div>
+<div id="chartContainerDesired" style="height: 250px; width: 50%; margin-left: 25%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="graphContainer" style="height: 250px; width: 50%; margin-left: 25%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
