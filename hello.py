@@ -12,7 +12,7 @@ students = [
         "last_name": "Pinhasovich",
         "existing_magic_skills": [
                             {"skill": 'Healing', "level": 4},
-                            {"skill": 'Animation', "level": 2}
+                            {"skill": 'Animation', "level": 2},
                                 ],
         "desired_magic_skills": ["Poison"],
         "courses": "Magic For Day-to-Day Life",
@@ -192,13 +192,6 @@ def pie_chart():
         if count:
             desired_list.append({'y': count, 'label': skill})
     return render_template('pie-chart.html', data=data, existing_list=existing_list, desired_list=desired_list, student_count=student_count)
-
-
-# @app.route('/students/<int:id>/delete', methods=['GET'])
-# def delete_student(id):
-#     student = [student for student in students if student['id'] == id][0]
-#     students.remove(student[0])
-#     return render_template("students.html", students=students)
 
 
 if __name__ == "__main__":
