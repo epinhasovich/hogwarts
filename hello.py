@@ -194,7 +194,7 @@ def pie_chart():
     return render_template('pie-chart.html', data=data, existing_list=existing_list, desired_list=desired_list, student_count=student_count)
 
 
-# @app.route('/students/<int:id>/delete', methods=['POST'])
+# @app.route('/students/<int:id>/delete', methods=['GET'])
 # def delete_student(id):
 #     student = [student for student in students if student['id'] == id][0]
 #     students.remove(student[0])
